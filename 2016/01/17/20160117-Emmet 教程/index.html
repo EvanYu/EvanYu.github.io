@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="emmet,html编写," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="设置设置只在html、css、php、markdown文件中起作用">
+<meta name="keywords" content="emmet,html编写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emmet 教程">
+<meta property="og:url" content="http://evanyu.github.io/2016/01/17/20160117-Emmet 教程/index.html">
+<meta property="og:site_name" content="愚公移山">
+<meta property="og:description" content="设置设置只在html、css、php、markdown文件中起作用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-14T13:41:35.988Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Emmet 教程">
+<meta name="twitter:description" content="设置设置只在html、css、php、markdown文件中起作用">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://evanyu.github.io/2016/01/17/20160117-Emmet 教程/"/>
+
+
+
+
+
+  <title>Emmet 教程 | 愚公移山</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">愚公移山</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://evanyu.github.io/2016/01/17/20160117-Emmet 教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EvanYu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="愚公移山">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Emmet 教程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-17T20:00:00+08:00">
+                2016-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>设置只在html、css、php、markdown文件中起作用</p>
+<a id="more"></a>
+<pre><code>let g:user_emmet_install_global = 0
+autocmd FileType html,css,php,markdown EmmetInstall
+</code></pre><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>注：<code>&lt;c-y&gt;,</code>指先按<code>ctrl+y</code>，再按<code>,</code></p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;c-y&gt;</td>
+<td>emmet触发键</td>
+</tr>
+<tr>
+<td>v&lt;c-y&gt;</td>
+<td>先进入可视模式，选择目标文本，按快捷键，状态栏踏出Tags:，输入命令即可</td>
+</tr>
+<tr>
+<td>&lt;c-y&gt;n</td>
+<td>跳转到下一个编辑点</td>
+</tr>
+<tr>
+<td>&lt;c-y&gt;N</td>
+<td>跳转到上一个编辑点</td>
+</tr>
+<tr>
+<td>&lt;c-y&gt;i</td>
+<td>移动到img标签，按快捷键，自动为图片添加大小（只能用于本地图片）</td>
+</tr>
+<tr>
+<td>&lt;c-y&gt;m</td>
+<td>合并多行为一行</td>
+</tr>
+<tr>
+<td>&lt;c-y&gt;k</td>
+<td>删除当前tag</td>
+</tr>
+<tr>
+<td>&lt;c-y&gt;/</td>
+<td>切换添加、去除注释</td>
+</tr>
+<tr>
+<td>&lt;c-y&gt;a</td>
+<td>自动将网址转换为链接标签</td>
+</tr>
+</tbody>
+</table>
+<h2 id="基本html用法"><a href="#基本html用法" class="headerlink" title="基本html用法"></a>基本html用法</h2><h3 id="生成基本html结构"><a href="#生成基本html结构" class="headerlink" title="生成基本html结构"></a>生成基本html结构</h3><p><strong>命令</strong>：<code>!</code>或者<code>html:5</code>，另外还有html:xt, html:4s。</p>
+<p><strong>效果</strong>：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="生成id"><a href="#生成id" class="headerlink" title="生成id(#)"></a>生成id(<em>#</em>)</h3><p><strong>示例</strong>：<code>div#main</code>，或者直接写 <code>#main</code></p>
+<p><strong>效果</strong>：</p>
+<pre><code>&lt;div id=&quot;main&quot;&gt;&lt;/div&gt;
+</code></pre><h3 id="生成class"><a href="#生成class" class="headerlink" title="生成class(.)"></a>生成class(<em>.</em>)</h3><p><strong>示例</strong>：<code>div.list</code></p>
+<p><strong>效果</strong>：</p>
+<pre><code>&lt;div class=&quot;list&quot;&gt;&lt;/div&gt;
+</code></pre><h3 id="生成后代元素-gt"><a href="#生成后代元素-gt" class="headerlink" title="生成后代元素(&gt;)"></a>生成后代元素(<em>&gt;</em>)</h3><p><strong>示例</strong>：<code>div.list&gt;ul&gt;li</code></p>
+<p><strong>效果</strong>：</p>
+<pre><code>&lt;div class=&quot;list&quot;&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre><h3 id="生成兄弟元素"><a href="#生成兄弟元素" class="headerlink" title="生成兄弟元素(+)"></a>生成兄弟元素(<em>+</em>)</h3><p><strong>示例</strong>：<code>h1+h2+p</code></p>
+<p><strong>效果</strong>：</p>
+<pre><code>&lt;h1&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+</code></pre><h3 id="文本"><a href="#文本" class="headerlink" title="文本({})"></a>文本(<em>{}</em>)</h3><p><strong>示例1</strong>：<code>a{Click me}+ul&gt;li{item$}*3</code></p>
+<p><strong>效果1</strong>：</p>
+<pre><code>&lt;a href=&quot;&quot;&gt;Click me&lt;/a&gt;
+&lt;ul&gt;
+    &lt;li&gt;item1&lt;/li&gt;
+    &lt;li&gt;item2&lt;/li&gt;
+    &lt;li&gt;item3&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p><strong>示例2</strong>：<code>p&gt;{Click }+a{here}+{ to continue}</code></p>
+<p><strong>效果2</strong>：</p>
+<pre><code>&lt;p&gt;
+    Click 
+    &lt;a href=&quot;&quot;&gt;here&lt;/a&gt;
+     to continue
+&lt;/p&gt;
+</code></pre><h3 id="生成上级元素"><a href="#生成上级元素" class="headerlink" title="生成上级元素(^)"></a>生成上级元素(<em>^</em>)</h3><p><strong>示例</strong>：<code>div.list&gt;ul&gt;li^span</code></p>
+<p><strong>效果</strong>：</p>
+<pre><code>&lt;div class=&quot;list&quot;&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+</code></pre><h3 id="重复生成元素"><a href="#重复生成元素" class="headerlink" title="重复生成元素"></a>重复生成元素</h3><p><strong>示例</strong>：<code>ul&gt;li*5</code></p>
+<p><strong>效果</strong>：</p>
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><h3 id="生成分组"><a href="#生成分组" class="headerlink" title="生成分组(())"></a>生成分组(<em>()</em>)</h3><p><strong>示例1</strong>：<code>div.list&gt;ul&gt;li</code></p>
+<p><strong>效果1</strong>：</p>
+<pre><code>&lt;div class=&quot;list&quot;&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre><p><strong>示例2</strong>：<code>(div&gt;dl&gt;(dt+dd)*3)+footer&gt;p</code></p>
+<p><strong>效果2</strong>：</p>
+<pre><code>&lt;div&gt;
+    &lt;dl&gt;
+        &lt;dt&gt;&lt;/dt&gt;
+        &lt;dd&gt;&lt;/dd&gt;
+        &lt;dt&gt;&lt;/dt&gt;
+        &lt;dd&gt;&lt;/dd&gt;
+        &lt;dt&gt;&lt;/dt&gt;
+        &lt;dd&gt;&lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/div&gt;
+&lt;footer&gt;
+    &lt;p&gt;&lt;/p&gt;
+&lt;/footer&gt;
+</code></pre><h3 id="N-生成编号，单个编号默认从1开始，也支持多位编号，需要几位就写几个，默认从0开始-N为起始编号"><a href="#N-生成编号，单个编号默认从1开始，也支持多位编号，需要几位就写几个，默认从0开始-N为起始编号" class="headerlink" title="$[N] (生成编号，单个编号默认从1开始，也支持多位编号，需要几位就写几个，默认从0开始,N为起始编号)"></a><em>$[N]</em> (生成编号，单个编号默认从1开始，也支持多位编号，需要几位就写几个，默认从0开始,<em>N</em>为起始编号)</h3><p><strong>示例</strong>：<code>div&gt;(ul&gt;li.item$*2)+(ul&gt;li.item$$@5*2)</code></p>
+<p><strong>效果</strong>：</p>
+<pre><code>&lt;div&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;item1&quot;&gt;&lt;/li&gt;
+        &lt;li class=&quot;item2&quot;&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;item05&quot;&gt;&lt;/li&gt;
+        &lt;li class=&quot;item06&quot;&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre><h3 id="编号排序-为倒序，N为起始编号-N"><a href="#编号排序-为倒序，N为起始编号-N" class="headerlink" title="编号排序-为倒序，N为起始编号($@[-][N])"></a>编号排序<em>-</em>为倒序，<em>N</em>为起始编号(<em>$@[-][N]</em>)</h3><p><strong>示例1</strong>：<code>ul&gt;li.item$$@-*2</code></p>
+<p><strong>效果1</strong>：</p>
+<pre><code>&lt;ul&gt;
+    &lt;li class=&quot;item02&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item01&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p><strong>示例2</strong>：<code>ul&gt;li.item$$@5*3</code></p>
+<p><strong>效果2</strong>：</p>
+<pre><code>&lt;ul&gt;
+    &lt;li class=&quot;item05&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item06&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item07&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><h3 id="生成随机内容，N为单词数量-lorem-N"><a href="#生成随机内容，N为单词数量-lorem-N" class="headerlink" title="生成随机内容，N为单词数量(lorem[N])"></a>生成随机内容，<em>N</em>为单词数量(<em>lorem[N]</em>)</h3><p><strong>示例1</strong>：<code>lorem</code></p>
+<p><strong>效果1</strong>：</p>
+<pre><code>Consectetur recusandae eos soluta obcaecati repudiandae molestias. Officia inventore deserunt iste fugit amet. Amet laboriosam dolorem maiores vel labore. In dolor ipsa suscipit quidem laboriosam pariatur quidem quam, eos delectus!
+</code></pre><p><strong>示例2</strong>：<code>h2*3&gt;lorem5</code>或者<code>(h2&gt;lorem5)*3</code></p>
+<p><strong>效果2</strong>：</p>
+<pre><code>&lt;h2&gt;
+    Adipisicing eligendi non laudantium unde.
+&lt;/h2&gt;
+&lt;h2&gt;
+    Adipisicing praesentium nesciunt itaque sit.
+&lt;/h2&gt;
+&lt;h2&gt;
+    Ipsum magni dicta iste minus.
+&lt;/h2&gt;
+</code></pre><h3 id="实用html组合"><a href="#实用html组合" class="headerlink" title="实用html组合"></a>实用html组合</h3><h4 id="生成一个基本网站框架"><a href="#生成一个基本网站框架" class="headerlink" title="生成一个基本网站框架"></a>生成一个基本网站框架</h4><p><strong>示例</strong>：<code>#main_page&gt;(div.header&gt;div.logo+div.menu)+div.context+div.footer</code></p>
+<p><strong>效果</strong>：</p>
+<pre><code>&lt;div id=&quot;main_page&quot;&gt;
+    &lt;div class=&quot;header&quot;&gt;
+        &lt;div class=&quot;logo&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;menu&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;context&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h4 id="生成内容"><a href="#生成内容" class="headerlink" title="生成内容"></a>生成内容</h4><p><strong>示例</strong>：<code>.context&gt;((span.title&gt;lorem2)+(span.text&gt;lorem10))*3</code></p>
+<p><strong>效果</strong>：</p>
+<pre><code>&lt;div class=&quot;context&quot;&gt;
+    &lt;span class=&quot;title&quot;&gt;Adipisicing odio!&lt;/span&gt;
+    &lt;span class=&quot;text&quot;&gt;Consectetur pariatur ipsa facere vitae ipsam? Voluptate veritatis sunt possimus.&lt;/span&gt;
+    &lt;span class=&quot;title&quot;&gt;Consectetur saepe.&lt;/span&gt;
+    &lt;span class=&quot;text&quot;&gt;Dolor reiciendis inventore maxime alias quo quas eveniet. Sit aut.&lt;/span&gt;
+    &lt;span class=&quot;title&quot;&gt;Amet dignissimos?&lt;/span&gt;
+    &lt;span class=&quot;text&quot;&gt;Sit voluptas voluptates iure quasi ab sint nulla? Repudiandae porro?&lt;/span&gt;
+&lt;/div&gt;
+</code></pre><h4 id="生成菜单"><a href="#生成菜单" class="headerlink" title="生成菜单"></a>生成菜单</h4><p><strong>示例</strong>：<code>div.menu&gt;ul#navigation&gt;li*5&gt;a{Item $}</code></p>
+<p><strong>效果</strong>：</p>
+<pre><code>&lt;div class=&quot;menu&quot;&gt;
+    &lt;ul id=&quot;navigation&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 5&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre><h4 id="可视化模式下生成菜单"><a href="#可视化模式下生成菜单" class="headerlink" title="可视化模式下生成菜单"></a>可视化模式下生成菜单</h4><p><strong>示例文本</strong>：</p>
+<pre><code>首页
+新闻
+方案
+关于
+</code></pre><p>按<code>v</code>进入可视模式，选中文本，再按<code>&lt;c-y&gt;,</code>，输入：<code>nav&gt;ul.nav&gt;li.page$*&gt;a</code></p>
+<p><strong>效果</strong>：</p>
+<pre><code>&lt;nav&gt;
+    &lt;ul class=&quot;nav&quot;&gt;
+        &lt;li class=&quot;page1&quot;&gt;&lt;a href=&quot;&quot;&gt;首页&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;page2&quot;&gt;&lt;a href=&quot;&quot;&gt;新闻&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;page3&quot;&gt;&lt;a href=&quot;&quot;&gt;方案&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;page4&quot;&gt;&lt;a href=&quot;&quot;&gt;关于&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre><p>再进一步，取消上面的操作，输入：<code>ul.nav&gt;li.page$*&gt;img[alt=$#]+a[href=&#39;#&#39;]</code></p>
+<pre><code>&lt;ul class=&quot;nav&quot;&gt;
+  &lt;li class=&quot;page1&quot;&gt;
+      &lt;img src=&quot;&quot; alt=&quot;首页&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;首页&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;page2&quot;&gt;
+      &lt;img src=&quot;&quot; alt=&quot;新闻&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;新闻&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;page3&quot;&gt;
+      &lt;img src=&quot;&quot; alt=&quot;方案&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;方案&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;page4&quot;&gt;
+      &lt;img src=&quot;&quot; alt=&quot;关于&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;关于 &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><h4 id="自动添加图片尺寸（前提是图片存在于本地）"><a href="#自动添加图片尺寸（前提是图片存在于本地）" class="headerlink" title="自动添加图片尺寸（前提是图片存在于本地）"></a>自动添加图片尺寸（前提是图片存在于本地）</h4><pre><code>&lt;img src=&quot;test.jpg&quot; alt=&quot;首页&quot;&gt;
+</code></pre><p>光标移动到img标签内，按<c-y>i再按Enter即可。</c-y></p>
+<p><strong>效果</strong>：</p>
+<pre><code>&lt;img src=&quot;test.jpg&quot; alt=&quot;首页&quot; width=&quot;500&quot; height=&quot;375&quot;&gt;
+</code></pre><h2 id="简写注意事项"><a href="#简写注意事项" class="headerlink" title="简写注意事项"></a>简写注意事项</h2><table>
+<thead>
+<tr>
+<th>简写</th>
+<th>编译</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.wrap&gt;.content</td>
+<td>div.wrap&gt;div.content</td>
+</tr>
+<tr>
+<td>em&gt;.info</td>
+<td>em&gt;span.info</td>
+</tr>
+<tr>
+<td>ul&gt;.item3</td>
+<td>ul&gt;li.item3</td>
+</tr>
+<tr>
+<td>table&gt;#row$4&gt;[colspan=2]</td>
+<td>table&gt;tr#row$4&gt;td[colspan=2]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="http://docs.emmet.io" target="_blank" rel="noopener">http://docs.emmet.io</a></p>
+<p><a href="http://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">http://docs.emmet.io/cheat-sheet/</a></p>
+<p><a href="https://github.com/mattn/emmet-vim" target="_blank" rel="noopener">https://github.com/mattn/emmet-vim</a></p>
+<p><a href="http://www.jianshu.com/p/67fa1e2114c5" target="_blank" rel="noopener">http://www.jianshu.com/p/67fa1e2114c5</a></p>
+<p><a href="https://www.zfanw.com/blog/zencoding-vim-tutorial-chinese.html" target="_blank" rel="noopener">https://www.zfanw.com/blog/zencoding-vim-tutorial-chinese.html</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/emmet/" rel="tag"># emmet</a>
+          
+            <a href="/tags/html编写/" rel="tag"># html编写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/16/20160116-CAD 文字样式与标注样式设置/" rel="next" title="CAD 文字样式与标注样式设置">
+                <i class="fa fa-chevron-left"></i> CAD 文字样式与标注样式设置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/18/20160118-html邮件编写指南/" rel="prev" title="html邮件编写指南">
+                html邮件编写指南 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">EvanYu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置"><span class="nav-number">1.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用法"><span class="nav-number">2.</span> <span class="nav-text">用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-number">2.1.</span> <span class="nav-text">快捷键</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本html用法"><span class="nav-number">3.</span> <span class="nav-text">基本html用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成基本html结构"><span class="nav-number">3.1.</span> <span class="nav-text">生成基本html结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成id"><span class="nav-number">3.2.</span> <span class="nav-text">生成id(#)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成class"><span class="nav-number">3.3.</span> <span class="nav-text">生成class(.)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成后代元素-gt"><span class="nav-number">3.4.</span> <span class="nav-text">生成后代元素(&gt;)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成兄弟元素"><span class="nav-number">3.5.</span> <span class="nav-text">生成兄弟元素(+)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本"><span class="nav-number">3.6.</span> <span class="nav-text">文本({})</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成上级元素"><span class="nav-number">3.7.</span> <span class="nav-text">生成上级元素(^)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重复生成元素"><span class="nav-number">3.8.</span> <span class="nav-text">重复生成元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成分组"><span class="nav-number">3.9.</span> <span class="nav-text">生成分组(())</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#N-生成编号，单个编号默认从1开始，也支持多位编号，需要几位就写几个，默认从0开始-N为起始编号"><span class="nav-number">3.10.</span> <span class="nav-text">$[N] (生成编号，单个编号默认从1开始，也支持多位编号，需要几位就写几个，默认从0开始,N为起始编号)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编号排序-为倒序，N为起始编号-N"><span class="nav-number">3.11.</span> <span class="nav-text">编号排序-为倒序，N为起始编号($@[-][N])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成随机内容，N为单词数量-lorem-N"><span class="nav-number">3.12.</span> <span class="nav-text">生成随机内容，N为单词数量(lorem[N])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实用html组合"><span class="nav-number">3.13.</span> <span class="nav-text">实用html组合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#生成一个基本网站框架"><span class="nav-number">3.13.1.</span> <span class="nav-text">生成一个基本网站框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成内容"><span class="nav-number">3.13.2.</span> <span class="nav-text">生成内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成菜单"><span class="nav-number">3.13.3.</span> <span class="nav-text">生成菜单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可视化模式下生成菜单"><span class="nav-number">3.13.4.</span> <span class="nav-text">可视化模式下生成菜单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动添加图片尺寸（前提是图片存在于本地）"><span class="nav-number">3.13.5.</span> <span class="nav-text">自动添加图片尺寸（前提是图片存在于本地）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简写注意事项"><span class="nav-number">4.</span> <span class="nav-text">简写注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文档"><span class="nav-number">5.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EvanYu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

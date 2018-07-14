@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C#,类型转换," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="类型转换隐式转换任何类型A，只要其取值范围完全包含在类型B的取值范围内，就可以隐式转换为类型B。">
+<meta name="keywords" content="C#,类型转换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#学习笔记05：类型转换与复杂变量">
+<meta property="og:url" content="http://evanyu.github.io/2015/11/05/20151105-CSharp学习笔记05：类型转换与复杂变量/index.html">
+<meta property="og:site_name" content="愚公移山">
+<meta property="og:description" content="类型转换隐式转换任何类型A，只要其取值范围完全包含在类型B的取值范围内，就可以隐式转换为类型B。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-07-07T15:22:06.485Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C#学习笔记05：类型转换与复杂变量">
+<meta name="twitter:description" content="类型转换隐式转换任何类型A，只要其取值范围完全包含在类型B的取值范围内，就可以隐式转换为类型B。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://evanyu.github.io/2015/11/05/20151105-CSharp学习笔记05：类型转换与复杂变量/"/>
+
+
+
+
+
+  <title>C#学习笔记05：类型转换与复杂变量 | 愚公移山</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">愚公移山</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://evanyu.github.io/2015/11/05/20151105-CSharp学习笔记05：类型转换与复杂变量/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EvanYu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="愚公移山">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C#学习笔记05：类型转换与复杂变量</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-05T20:00:00+08:00">
+                2015-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C#</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h3><p>任何类型A，只要其取值范围完全包含在类型B的取值范围内，就可以隐式转换为类型B。</p>
+<a id="more"></a>
+<h3 id="显式转换"><a href="#显式转换" class="headerlink" title="显式转换"></a>显式转换</h3><h4 id="C-本身的显示转换"><a href="#C-本身的显示转换" class="headerlink" title="C#本身的显示转换"></a>C#本身的显示转换</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;(destinationType)sourceVar&gt;</span><br></pre></td></tr></table></figure>
+<p>在将范围较大的值转换为范围较小的值（如将281转换为byte类型）会出现丢失，以二进制来看会丢失左边的值，如下为281转换为byte类型时的例子：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">281</span> = <span class="number">100011001</span></span><br><span class="line"><span class="number">25</span>  = <span class="number">000011001</span></span><br><span class="line"><span class="number">255</span> = <span class="number">011111111</span></span><br></pre></td></tr></table></figure></p>
+<p>这时候为了程序不会出现非预期的结果，可以使用checked和unchecked关键字进行溢出检查。也可以在vs中”解决方案管理器”-&gt;”属性”-&gt;”生成”-&gt;”高级”-&gt;”检查运算上溢/下溢”进行设置，激活checked操作。</p>
+<h4 id="NET-Framework的显示转换"><a href="#NET-Framework的显示转换" class="headerlink" title=".NET Framework的显示转换"></a>.NET Framework的显示转换</h4><p>这种转换方式总是会自动的进行溢出检查，而会忽略checked的设置。</p>
+
+<h2 id="复杂变量"><a href="#复杂变量" class="headerlink" title="复杂变量"></a>复杂变量</h2><h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h3><p><strong>定义枚举：</strong></p>
+<p>枚举使用一个基本类型来存储，枚举类型可以提取的每个值都存储为该基本类型的一个值，默认情况下该类型为 int。枚举的基本类型可以是 byte、sbyte、short、ushort、int、uint、long 和 ulong。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> &lt;typeName&gt; : &lt;underlyingType&gt; </span><br><span class="line">&#123; </span><br><span class="line">    &lt;value1&gt;, </span><br><span class="line">    &lt;value2&gt;, </span><br><span class="line">    &lt;value3&gt;, </span><br><span class="line">    ... </span><br><span class="line">    &lt;valueN&gt; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>声明新的类型变量并赋值：</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;typeName&gt; &lt;varName&gt;;</span><br><span class="line">&lt;varName&gt; = &lt;typeName&gt;.&lt;<span class="keyword">value</span>&gt;;</span><br></pre></td></tr></table></figure></p>
+<p>在默认情况下，每个值都会根据定义的顺序(从 0 开始)，自动赋给对应的基本类型值。这意味着<value1>的值是 0，<value2>的值是 1，<value3>的值是 2 等。可以重写这个赋值过程：使用=运算符，并指定每个枚举的实际值。如下是使用枚举的一个示例：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">Ch05Ex02</span> </span><br><span class="line">&#123; </span><br><span class="line">    <span class="keyword">enum</span> orientation : <span class="keyword">byte</span> </span><br><span class="line">    &#123; </span><br><span class="line">        north = <span class="number">1</span>, </span><br><span class="line">        south = <span class="number">2</span>, </span><br><span class="line">        east = <span class="number">3</span>, </span><br><span class="line">        west = <span class="number">4</span> </span><br><span class="line">    &#125; </span><br><span class="line"> </span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span> </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>) </span></span><br><span class="line"><span class="function">        </span>&#123; </span><br><span class="line">            orientation myDirection = orientation.north; </span><br><span class="line">            Console.WriteLine(<span class="string">"myDirection = &#123;0&#125;"</span>, myDirection); </span><br><span class="line">            Console.ReadKey(); </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></value3></value2></value1></p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>结构类型就是多种不同类型的一个集合。<strong>结构定义：</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &lt;typeName&gt; </span><br><span class="line">&#123; </span><br><span class="line">    &lt;memberDeclarations&gt; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><memberdeclarations>部分包含变量的声明(称为结构的数据成员)，其格式与往常一样。每个成员的声明都采用如下形式：<code>&lt;accessibility&gt; &lt;type&gt; &lt;name&gt;;</code>，要让调用结构的代码访问该结构的成员可以对<accessibility>使用关键字public。</accessibility></memberdeclarations></p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p><strong>声明：</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;baseType&gt;[] &lt;name&gt;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>初始化：</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] myIntArray = &#123; <span class="number">5</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">2</span>, <span class="number">99</span> &#125;;</span><br><span class="line">或者：</span><br><span class="line"><span class="keyword">int</span>[] myIntArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br></pre></td></tr></table></figure></p>
+<p><strong>foreach循环：</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (&lt;baseType&gt; &lt;name&gt; <span class="keyword">in</span> &lt;array&gt;) </span><br><span class="line">&#123; </span><br><span class="line">    <span class="comment">// can use &lt;name&gt; for each element </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>矩形数组：</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;baseType&gt;[,,,] &lt;name&gt;;</span><br></pre></td></tr></table></figure></p>
+<p>foreach 循环可以访问多维数组中的所有元素，其方式与访问一维数组相同，例如：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span>[,] hillHeight = &#123; &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> &#125;, &#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;, &#123; <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> &#125; &#125;; </span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">double</span> height <span class="keyword">in</span> hillHeight) </span><br><span class="line">&#123; </span><br><span class="line">    Console.WriteLine(<span class="string">"&#123;0&#125;"</span>, height); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>锯齿数组（数组的数组）：</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] jaggedIntArray;</span><br><span class="line">jaggedIntArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][<span class="number">4</span>];</span><br></pre></td></tr></table></figure></p>
+<h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><p>字符串变量可以看作是char变量的<strong>只读</strong>数组。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">string</span> myString = <span class="string">"A string"</span>; </span><br><span class="line"><span class="keyword">char</span> myChar = myString[<span class="number">1</span>];</span><br></pre></td></tr></table></figure></p>
+<p>但是，不能用这种方式为各个字符赋值。为了获得一个可写的 char 数组，可以使用下面的代码：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">string</span> myString = <span class="string">"A string"</span>; </span><br><span class="line"><span class="keyword">char</span>[] myChars = myString.ToCharArray();</span><br></pre></td></tr></table></figure></p>
+<p>也可以在 foreach 循环中使用字符串，例如：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (<span class="keyword">char</span> character <span class="keyword">in</span> myString) </span><br><span class="line">&#123; </span><br><span class="line">  Console.WriteLine(<span class="string">"&#123;0&#125;"</span>, character); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>字符串最重要的在于.NET 提供了非常丰富的处理函数，可以使用 IDE 的自动补全功能查看学习。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C#</a>
+          
+            <a href="/tags/类型转换/" rel="tag"># 类型转换</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/04/20151104-CSharp学习笔记04：流程控制/" rel="next" title="C#学习笔记04：流程控制">
+                <i class="fa fa-chevron-left"></i> C#学习笔记04：流程控制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/06/20151106-CSharp学习笔记06：函数/" rel="prev" title="C#学习笔记06：函数">
+                C#学习笔记06：函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">EvanYu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">1.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#隐式转换"><span class="nav-number">1.1.</span> <span class="nav-text">隐式转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显式转换"><span class="nav-number">1.2.</span> <span class="nav-text">显式转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#C-本身的显示转换"><span class="nav-number">1.2.1.</span> <span class="nav-text">C#本身的显示转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NET-Framework的显示转换"><span class="nav-number">1.2.2.</span> <span class="nav-text">.NET Framework的显示转换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂变量"><span class="nav-number">2.</span> <span class="nav-text">复杂变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举"><span class="nav-number">2.1.</span> <span class="nav-text">枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构"><span class="nav-number">2.2.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.3.</span> <span class="nav-text">数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串处理"><span class="nav-number">3.</span> <span class="nav-text">字符串处理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EvanYu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

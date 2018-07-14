@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux,RaspberryPI,Archlinux," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文说明了RaspberryPI安装Archlinux并安装无线网卡驱动，成为路由的过程。">
+<meta name="keywords" content="linux,RaspberryPI,Archlinux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RaspberryPI折腾Archlinux">
+<meta property="og:url" content="http://evanyu.github.io/2016/12/07/20161207-RaspberryPI折腾Archlinux/index.html">
+<meta property="og:site_name" content="愚公移山">
+<meta property="og:description" content="本文说明了RaspberryPI安装Archlinux并安装无线网卡驱动，成为路由的过程。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-12-26T06:26:48.492Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RaspberryPI折腾Archlinux">
+<meta name="twitter:description" content="本文说明了RaspberryPI安装Archlinux并安装无线网卡驱动，成为路由的过程。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://evanyu.github.io/2016/12/07/20161207-RaspberryPI折腾Archlinux/"/>
+
+
+
+
+
+  <title>RaspberryPI折腾Archlinux | 愚公移山</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">愚公移山</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://evanyu.github.io/2016/12/07/20161207-RaspberryPI折腾Archlinux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EvanYu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="愚公移山">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RaspberryPI折腾Archlinux</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-07T18:45:10+08:00">
+                2016-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文说明了RaspberryPI安装Archlinux并安装无线网卡驱动，成为路由的过程。</p>
+<a id="more"></a>
+<h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><p>我的硬件是RaspberryPI一代B版本，不同的硬件应该到网站下载相对应的版本。</p>
+<h2 id="系统安装"><a href="#系统安装" class="headerlink" title="系统安装"></a>系统安装</h2><p>安装过程可以见<a href="https://archlinuxarm.org/platforms/armv6/raspberry-pi" target="_blank" rel="noopener">这里</a>：</p>
+<p>Replace sdX in the following instructions with the device name for the SD card as it appears on your computer.</p>
+<p>Start fdisk to partition the SD card:</p>
+<p><code>fdisk /dev/sdX</code></p>
+<p>At the fdisk prompt, delete old partitions and create a new one:<br>    Type o. This will clear out any partitions on the drive.<br>    Type p to list partitions. There should be no partitions left.<br>    Type n, then p for primary, 1 for the first partition on the drive, press ENTER to accept the default first sector, then type +100M for the last sector.<br>    Type t, then c to set the first partition to type W95 FAT32 (LBA).<br>    Type n, then p for primary, 2 for the second partition on the drive, and then press ENTER twice to accept the default first and last sector.<br>    Write the partition table and exit by typing w.<br>Create and mount the FAT filesystem:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs.vfat /dev/sdX1</span><br><span class="line">mkdir boot</span><br><span class="line">mount /dev/sdX1 boot</span><br></pre></td></tr></table></figure>
+<p>Create and mount the ext4 filesystem:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sdX2</span><br><span class="line">mkdir root</span><br><span class="line">mount /dev/sdX2 root</span><br></pre></td></tr></table></figure>
+<p>Download and extract the root filesystem (as root, not via sudo):</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-latest.tar.gz</span><br><span class="line">bsdtar -xpf ArchLinuxARM-rpi-latest.tar.gz -C root</span><br><span class="line">sync</span><br></pre></td></tr></table></figure>
+<p>Move boot files to the first partition:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv root/boot/* boot</span><br></pre></td></tr></table></figure>
+<p>Unmount the two partitions:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount boot root</span><br></pre></td></tr></table></figure>
+<p>Insert the SD card into the Raspberry Pi, connect ethernet, and apply 5V power.<br>Use the serial console or SSH to the IP address given to the board by your router.<br>    Login as the default user alarm with the password alarm.<br>    The default root password is root.</p>
+<p><strong>关于分区：</strong></p>
+<p>可能有的人跟我一样使用虚拟机而没有在电脑上安装linux系统而导致无法使用fdisk，在分区的时候为了使用虚拟机进行分区可以采用如下的方法（此处仅介绍了vmware中的方法，virtualbox应该也类似）：</p>
+<ol>
+<li>插入SD卡</li>
+<li>在虚拟机中添加实体硬盘（此处选择vmware推荐的SCSI）</li>
+<li>然后就可以顺利的进行上述的安装操作了</li>
+</ol>
+<p>安装完成后RaspberryPI会使用自动获取IP的方式，可以进行扫描得到IP然后进行登陆。ssh登陆只能使用alarm用户登录，不能使用root登陆。登陆系统以后可以使用<code>su root</code>切换为root用户。</p>
+<h2 id="初始化设置"><a href="#初始化设置" class="headerlink" title="初始化设置"></a>初始化设置</h2><h3 id="修改用户密码"><a href="#修改用户密码" class="headerlink" title="修改用户密码"></a>修改用户密码</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
+<h3 id="修改国内源"><a href="#修改国内源" class="headerlink" title="修改国内源"></a>修改国内源</h3><p><em>vim /etc/pacman.d/mirrorlist</em></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server = http://mirrors.ustc.edu.cn/archlinuxarm/$arch/$repo</span><br></pre></td></tr></table></figure>
+<p>然后执行<em>pacman -Syy</em>同步库并更新系统<em>pacman -Syu</em>，然后重启。</p>
+<h3 id="安装vim"><a href="#安装vim" class="headerlink" title="安装vim"></a>安装vim</h3><p>所有的折腾与配置都需要编辑文本文件，所以我们首先安装编辑器：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S vim</span><br></pre></td></tr></table></figure>
+<h3 id="固定IP设置"><a href="#固定IP设置" class="headerlink" title="固定IP设置"></a>固定IP设置</h3><p>使用DHCP还是太麻烦了，IP总是在变动，所以我们设置为固定IP。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/netctl/examples/ethernet-static /etc/netctl/eth0</span><br></pre></td></tr></table></figure>
+<p>修改配置文件为自己想要的IP和网段，由于默认情况下eth0已经被其他服务接管，所以需要进行如下操作才能真正在RaspberryPI启动的时候使用固定IP：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop netctl-ifplugd@eth0.service</span><br><span class="line">systemctl disable netctl-ifplugd@eth0.service</span><br></pre></td></tr></table></figure>
+<p>由于我使用ssh登陆，无法停用网卡再启动配置，只能采用重启RaspberryPI的方法来使新的网络配置生效。</p>
+<h3 id="bash补全设置"><a href="#bash补全设置" class="headerlink" title="bash补全设置"></a>bash补全设置</h3><p>由于root下的<em>ls</em>命令没有使用<em>–color=auto</em>选项，所以可以复制<em>alarm</em>用户目录下的<em>.bashrc</em>文件到<em>root</em>用户目录下。另外再安装<em>bash-completion</em>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S bash-completion</span><br></pre></td></tr></table></figure>
+<p><em>vim ~/.inputrc</em>增加如下一行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set completion-ignore-case on</span><br></pre></td></tr></table></figure>
+<h3 id="修改用户名"><a href="#修改用户名" class="headerlink" title="修改用户名"></a>修改用户名</h3><p>我不太喜欢用<em>alarm</em>这个用户名进行登陆，所以我修改了我自己的用户名为<em>evan</em>，由于我们不是用root进行登陆，所以需要修改ssh的配置文件先允许root登陆，然后才能修改用户名：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">usermod -l evan -d /home/evan -m alarm</span><br><span class="line">groupmod -n evan alarm</span><br></pre></td></tr></table></figure>
+<h3 id="安装ntfs支持"><a href="#安装ntfs支持" class="headerlink" title="安装ntfs支持"></a>安装ntfs支持</h3><p>由于经常会需要挂载U盘，而我们往往都生活在万恶的windows下，需要读取windows的格式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S ntfs-3g</span><br></pre></td></tr></table></figure>
+<h3 id="时区及同步"><a href="#时区及同步" class="headerlink" title="时区及同步"></a>时区及同步</h3><p><em>vim /etc/rc.conf</em></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TIMEZONE="Asia/Shanghai"</span><br></pre></td></tr></table></figure>
+<p>还要在/etc/localtime做个软链接给具体的zoneinfo</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+<p>Raspberry 是没有硬件时钟的，每次关机重启时间又回到初始的1970年，所以我们要设置网络同步时间。<em>vim /etc/ntp.conf</em></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server 1.cn.ntp.org iburst</span><br><span class="line">server 0.asia.pool.ntp.org iburst</span><br><span class="line">server 3.asia.pool.ntp.org iburst</span><br></pre></td></tr></table></figure>
+<p>然后开机启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-ntp true</span><br></pre></td></tr></table></figure>
+<h3 id="网络工具包"><a href="#网络工具包" class="headerlink" title="网络工具包"></a>网络工具包</h3><p>ifconfig,route在net-tools中，nslookup,dig在dnsutils中，ftp,telnet等在inetutils中,ip命令在iproute2中。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S net-tools dnsutils inetutils iproute2</span><br></pre></td></tr></table></figure>
+<h3 id="Raspberry-Pi超频"><a href="#Raspberry-Pi超频" class="headerlink" title="Raspberry Pi超频"></a>Raspberry Pi超频</h3><p><em>vim /boot/config.txt</em></p>
+<p>armfreq：ARM处理器的频率，单位是MHz。默认值是 700。 最简单的方法是将“armfreq”的值改成“900”并加上“sdram_freq=500”。 一步秒杀，十分轻松。</p>
+<h2 id="无线网卡驱动安装"><a href="#无线网卡驱动安装" class="headerlink" title="无线网卡驱动安装"></a>无线网卡驱动安装</h2><h3 id="硬件-1"><a href="#硬件-1" class="headerlink" title="硬件"></a>硬件</h3><p>我的无线网卡为EDUP EP-MS1578 300M USB，芯片为R8192cu。</p>
+<h3 id="基本程序安装"><a href="#基本程序安装" class="headerlink" title="基本程序安装"></a>基本程序安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S wget git python base-devel</span><br></pre></td></tr></table></figure>
+<h3 id="驱动安装"><a href="#驱动安装" class="headerlink" title="驱动安装"></a>驱动安装</h3><p>我的无线网卡芯片为8192cu，archlinux下安装驱动比raspbian要简单的多：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S dkms-8192cu</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/RaspberryPI/" rel="tag"># RaspberryPI</a>
+          
+            <a href="/tags/Archlinux/" rel="tag"># Archlinux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/17/20161117-盈建科鉴定加固计算/" rel="next" title="盈建科鉴定加固计算">
+                <i class="fa fa-chevron-left"></i> 盈建科鉴定加固计算
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/20/20161220-C与Python计时器以及进度显示/" rel="prev" title="C与Python计时器以及进度显示">
+                C与Python计时器以及进度显示 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">EvanYu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件"><span class="nav-number">1.</span> <span class="nav-text">硬件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统安装"><span class="nav-number">2.</span> <span class="nav-text">系统安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化设置"><span class="nav-number">3.</span> <span class="nav-text">初始化设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改用户密码"><span class="nav-number">3.1.</span> <span class="nav-text">修改用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改国内源"><span class="nav-number">3.2.</span> <span class="nav-text">修改国内源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装vim"><span class="nav-number">3.3.</span> <span class="nav-text">安装vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#固定IP设置"><span class="nav-number">3.4.</span> <span class="nav-text">固定IP设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash补全设置"><span class="nav-number">3.5.</span> <span class="nav-text">bash补全设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改用户名"><span class="nav-number">3.6.</span> <span class="nav-text">修改用户名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ntfs支持"><span class="nav-number">3.7.</span> <span class="nav-text">安装ntfs支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时区及同步"><span class="nav-number">3.8.</span> <span class="nav-text">时区及同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络工具包"><span class="nav-number">3.9.</span> <span class="nav-text">网络工具包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Raspberry-Pi超频"><span class="nav-number">3.10.</span> <span class="nav-text">Raspberry Pi超频</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无线网卡驱动安装"><span class="nav-number">4.</span> <span class="nav-text">无线网卡驱动安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#硬件-1"><span class="nav-number">4.1.</span> <span class="nav-text">硬件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本程序安装"><span class="nav-number">4.2.</span> <span class="nav-text">基本程序安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#驱动安装"><span class="nav-number">4.3.</span> <span class="nav-text">驱动安装</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EvanYu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

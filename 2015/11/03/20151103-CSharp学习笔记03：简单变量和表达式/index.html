@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C#,变量," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="C#的基本语法 空白字符：忽略 语句分隔：分号 块界定符：{} 注释 单行：// 多行：/ note /   代码区分大小写">
+<meta name="keywords" content="C#,变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#学习笔记03：简单变量和表达式">
+<meta property="og:url" content="http://evanyu.github.io/2015/11/03/20151103-CSharp学习笔记03：简单变量和表达式/index.html">
+<meta property="og:site_name" content="愚公移山">
+<meta property="og:description" content="C#的基本语法 空白字符：忽略 语句分隔：分号 块界定符：{} 注释 单行：// 多行：/ note /   代码区分大小写">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-07-07T15:18:31.866Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C#学习笔记03：简单变量和表达式">
+<meta name="twitter:description" content="C#的基本语法 空白字符：忽略 语句分隔：分号 块界定符：{} 注释 单行：// 多行：/ note /   代码区分大小写">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://evanyu.github.io/2015/11/03/20151103-CSharp学习笔记03：简单变量和表达式/"/>
+
+
+
+
+
+  <title>C#学习笔记03：简单变量和表达式 | 愚公移山</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">愚公移山</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://evanyu.github.io/2015/11/03/20151103-CSharp学习笔记03：简单变量和表达式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EvanYu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="愚公移山">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C#学习笔记03：简单变量和表达式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-03T20:00:00+08:00">
+                2015-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C#</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="C-的基本语法"><a href="#C-的基本语法" class="headerlink" title="C#的基本语法"></a>C#的基本语法</h2><ul>
+<li>空白字符：忽略</li>
+<li>语句分隔：分号</li>
+<li>块界定符：{}</li>
+<li>注释<ul>
+<li>单行：//</li>
+<li>多行：/<em> note </em>/</li>
+</ul>
+</li>
+<li>代码区分大小写</li>
+</ul>
+<a id="more"></a>
+<h2 id="控制台应用程序的基本结构"><a href="#控制台应用程序的基本结构" class="headerlink" title="控制台应用程序的基本结构"></a>控制台应用程序的基本结构</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> Using directives</span></span><br><span class="line"><span class="keyword">using</span> System; </span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic; </span><br><span class="line"><span class="keyword">using</span> System.Linq; </span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApplication1</span> </span><br><span class="line">&#123; </span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span> </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>) </span></span><br><span class="line"><span class="function">        </span>&#123; </span><br><span class="line">            <span class="comment">// Output text to the screen. </span></span><br><span class="line">            Console.WriteLine(<span class="string">"The first app in Beginning C# Programming!"</span>); </span><br><span class="line">            Console.ReadKey(); </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="变量及其用法"><a href="#变量及其用法" class="headerlink" title="变量及其用法"></a>变量及其用法</h2><h3 id="简单类型"><a href="#简单类型" class="headerlink" title="简单类型"></a>简单类型</h3><p><strong>整数类型：</strong></p>
+
+<p>上表是按照8位、16位、32位、64位的顺序排列的。所谓的别名实际上就是 .NET 中定义的类（因为类型也是一种类）。</p>
+<p><strong>浮点数类型：</strong></p>
+
+<p><strong>字符、布尔、字符串类型：</strong></p>
+
+<p>在采用 <code>Console.WriteLine()</code> 函数输出数字或者变量的时候，占位符是 <code>{0}{1}</code> 之类的。</p>
+<h3 id="字面值"><a href="#字面值" class="headerlink" title="字面值"></a>字面值</h3>
+<h3 id="转义字符串"><a href="#转义字符串" class="headerlink" title="转义字符串"></a>转义字符串</h3>
+<h3 id="原始字符串"><a href="#原始字符串" class="headerlink" title="原始字符串"></a>原始字符串</h3><p>在字符串之前加上”@”符号，字符串中的字符都不会被转义。</p>
+<p>@”Verbatim string literal.”</p>
+<h2 id="表达式及其用法"><a href="#表达式及其用法" class="headerlink" title="表达式及其用法"></a>表达式及其用法</h2><h3 id="数学运算符"><a href="#数学运算符" class="headerlink" title="数学运算符"></a>数学运算符</h3>
+
+<p><strong>数学运算与读取输入的示例：</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>) </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">double</span> firstNumber, secondNumber; </span><br><span class="line">    <span class="keyword">string</span> userName; </span><br><span class="line">    Console.WriteLine(<span class="string">"Enter your name:"</span>); </span><br><span class="line">    userName = Console.ReadLine(); </span><br><span class="line">    Console.WriteLine(<span class="string">"Welcome &#123;0&#125;!"</span>, userName); </span><br><span class="line">    Console.WriteLine(<span class="string">"Now give me a number:"</span>); </span><br><span class="line">    firstNumber = Convert.ToDouble(Console.ReadLine()); </span><br><span class="line">    Console.WriteLine(<span class="string">"Now give me another number:"</span>); </span><br><span class="line">    secondNumber = Convert.ToDouble(Console.ReadLine()); </span><br><span class="line">    Console.WriteLine(<span class="string">"The sum of &#123;0&#125; and &#123;1&#125; is &#123;2&#125;."</span>, firstNumber, </span><br><span class="line">                 secondNumber, firstNumber + secondNumber); </span><br><span class="line">    Console.WriteLine(<span class="string">"The result of subtracting &#123;0&#125; from &#123;1&#125; is &#123;2&#125;."</span>, </span><br><span class="line">                 secondNumber, firstNumber, firstNumber - secondNumber); </span><br><span class="line">    Console.WriteLine(<span class="string">"The product of &#123;0&#125; and &#123;1&#125; is &#123;2&#125;."</span>, firstNumber, </span><br><span class="line">                 secondNumber, firstNumber * secondNumber); </span><br><span class="line">    Console.WriteLine(<span class="string">"The result of dividing &#123;0&#125; by &#123;1&#125; is &#123;2&#125;."</span>, </span><br><span class="line">                 firstNumber, secondNumber, firstNumber / secondNumber); </span><br><span class="line">    Console.WriteLine(<span class="string">"The remainder after dividing &#123;0&#125; by &#123;1&#125; is &#123;2&#125;."</span>, </span><br><span class="line">                 firstNumber, secondNumber, firstNumber % secondNumber); </span><br><span class="line">    Console.ReadKey(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3>
+<h3 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h3>
+<h2 id="名称空间"><a href="#名称空间" class="headerlink" title="名称空间"></a>名称空间</h2><ul>
+<li>代码容器</li>
+<li>给项分类</li>
+<li>可嵌套</li>
+<li>句点引用</li>
+<li>别名：using LT = LevelTwo;</li>
+</ul>
+<p>需要注意特别重要的一点：using 语句本身不能访问另一个名称空间中的名称。除非名称空间中的代码以某种方式链接到项目上，或者代码是在该项目的源文件中定义的，或者链接到该项目的其他代码中定义的，否则就不能访问其中包含的名称。此外，如果包含名称空间的代码链接到项目上，无论是否使用 using，都可以访问其中包含的名称。using 语句便于我们访问这些名称，减少代码量，以及提高可读性。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C#</a>
+          
+            <a href="/tags/变量/" rel="tag"># 变量</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/02/20151102-CSharp学习笔记02：HelloWorld/" rel="next" title="C#学习笔记02：HelloWorld">
+                <i class="fa fa-chevron-left"></i> C#学习笔记02：HelloWorld
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/04/20151104-CSharp学习笔记04：流程控制/" rel="prev" title="C#学习笔记04：流程控制">
+                C#学习笔记04：流程控制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">EvanYu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-的基本语法"><span class="nav-number">1.</span> <span class="nav-text">C#的基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制台应用程序的基本结构"><span class="nav-number">2.</span> <span class="nav-text">控制台应用程序的基本结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量及其用法"><span class="nav-number">3.</span> <span class="nav-text">变量及其用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单类型"><span class="nav-number">3.1.</span> <span class="nav-text">简单类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字面值"><span class="nav-number">3.2.</span> <span class="nav-text">字面值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转义字符串"><span class="nav-number">3.3.</span> <span class="nav-text">转义字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原始字符串"><span class="nav-number">3.4.</span> <span class="nav-text">原始字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表达式及其用法"><span class="nav-number">4.</span> <span class="nav-text">表达式及其用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数学运算符"><span class="nav-number">4.1.</span> <span class="nav-text">数学运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值运算符"><span class="nav-number">4.2.</span> <span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符的优先级"><span class="nav-number">4.3.</span> <span class="nav-text">运算符的优先级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#名称空间"><span class="nav-number">5.</span> <span class="nav-text">名称空间</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EvanYu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

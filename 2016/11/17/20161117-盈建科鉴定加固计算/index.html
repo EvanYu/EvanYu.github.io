@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="盈建科,鉴定加固,结构计算," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="盈建科软件可对混凝土结构进行鉴定与加固设计计算，包括常见的增大截面加固法、置换混凝土加固法、外粘型钢加固法、粘贴纤维复合材加固法、粘贴钢板加固法、钢绞线网-聚合物砂浆面层加固法。本文说明了用盈建科进行结构鉴定加固的设计计算过程，以及鉴定加固过程中需要注意的事项。">
+<meta name="keywords" content="盈建科,鉴定加固,结构计算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="盈建科鉴定加固计算">
+<meta property="og:url" content="http://evanyu.github.io/2016/11/17/20161117-盈建科鉴定加固计算/index.html">
+<meta property="og:site_name" content="愚公移山">
+<meta property="og:description" content="盈建科软件可对混凝土结构进行鉴定与加固设计计算，包括常见的增大截面加固法、置换混凝土加固法、外粘型钢加固法、粘贴纤维复合材加固法、粘贴钢板加固法、钢绞线网-聚合物砂浆面层加固法。本文说明了用盈建科进行结构鉴定加固的设计计算过程，以及鉴定加固过程中需要注意的事项。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-11-17T11:09:15.479Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="盈建科鉴定加固计算">
+<meta name="twitter:description" content="盈建科软件可对混凝土结构进行鉴定与加固设计计算，包括常见的增大截面加固法、置换混凝土加固法、外粘型钢加固法、粘贴纤维复合材加固法、粘贴钢板加固法、钢绞线网-聚合物砂浆面层加固法。本文说明了用盈建科进行结构鉴定加固的设计计算过程，以及鉴定加固过程中需要注意的事项。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://evanyu.github.io/2016/11/17/20161117-盈建科鉴定加固计算/"/>
+
+
+
+
+
+  <title>盈建科鉴定加固计算 | 愚公移山</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">愚公移山</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://evanyu.github.io/2016/11/17/20161117-盈建科鉴定加固计算/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EvanYu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="愚公移山">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">盈建科鉴定加固计算</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-17T15:38:50+08:00">
+                2016-11-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/结构设计/" itemprop="url" rel="index">
+                    <span itemprop="name">结构设计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>盈建科软件可对混凝土结构进行鉴定与加固设计计算，包括常见的增大截面加固法、置换混凝土加固法、外粘型钢加固法、粘贴纤维复合材加固法、粘贴钢板加固法、钢绞线网-聚合物砂浆面层加固法。本文说明了用盈建科进行结构鉴定加固的设计计算过程，以及鉴定加固过程中需要注意的事项。<br><a id="more"></a></p>
+<h2 id="鉴定加固常用规范标准及选用"><a href="#鉴定加固常用规范标准及选用" class="headerlink" title="鉴定加固常用规范标准及选用"></a>鉴定加固常用规范标准及选用</h2><p>鉴定加固常用的标准与规范如下所列：</p>
+<ul>
+<li>《建筑抗震鉴定标准》GB50023</li>
+<li>《建筑抗震加固技术规程》JGJ116</li>
+<li>《混凝土结构加固设计规范》GB50367</li>
+</ul>
+<p>根据《建筑抗震鉴定标准》及《建筑抗震加固技术规程》的相关规定，对于要求后续使用年限为50年的C类建筑，应按现行《建筑抗震设计规范》的方法进行抗震鉴定；对于要求后续使用年限为40年的建筑，应按《建筑抗震鉴定标准》GB50023-2009中B类建筑进行抗震鉴定；对于要求后续使用年限为30年的建筑，应按《建筑抗震鉴定标准》GB50023-2009中A类建筑进行抗震鉴定。应注意的是，对于A类建筑，也可按B类建筑进行抗震鉴定，对于B类建筑，也可按C类建筑进行抗震鉴定，但不得按A类建筑进行鉴定，也就是说鉴定标准中给出的后续使用年限是一个最低很值，有条件时可适当提高鉴定要求。<strong>注意：此选项在”总体信息-&gt;鉴定加固”中选用</strong></p>
+<h2 id="通用步骤"><a href="#通用步骤" class="headerlink" title="通用步骤"></a>通用步骤</h2><h3 id="原模型与新荷载的输入"><a href="#原模型与新荷载的输入" class="headerlink" title="原模型与新荷载的输入"></a>原模型与新荷载的输入</h3><p>结构一般是由于使用功能的改变、荷载发生了变化所以需要加固。加固的第一步是鉴定，鉴定功能改变以后是否需要对结构进行加固。首先将发生变化的荷载输入到原结构模型中，输入荷载与新建模型没有什么区别，这里就不赘述了。</p>
+<h3 id="新荷载作用于原结构的计算与判别"><a href="#新荷载作用于原结构的计算与判别" class="headerlink" title="新荷载作用于原结构的计算与判别"></a>新荷载作用于原结构的计算与判别</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/盈建科/" rel="tag"># 盈建科</a>
+          
+            <a href="/tags/鉴定加固/" rel="tag"># 鉴定加固</a>
+          
+            <a href="/tags/结构计算/" rel="tag"># 结构计算</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/15/20161115-VimYouCompleteMe插件问题/" rel="next" title="Vim YouCompleteMe 插件问题">
+                <i class="fa fa-chevron-left"></i> Vim YouCompleteMe 插件问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/07/20161207-RaspberryPI折腾Archlinux/" rel="prev" title="RaspberryPI折腾Archlinux">
+                RaspberryPI折腾Archlinux <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">EvanYu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#鉴定加固常用规范标准及选用"><span class="nav-number">1.</span> <span class="nav-text">鉴定加固常用规范标准及选用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用步骤"><span class="nav-number">2.</span> <span class="nav-text">通用步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原模型与新荷载的输入"><span class="nav-number">2.1.</span> <span class="nav-text">原模型与新荷载的输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新荷载作用于原结构的计算与判别"><span class="nav-number">2.2.</span> <span class="nav-text">新荷载作用于原结构的计算与判别</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EvanYu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
